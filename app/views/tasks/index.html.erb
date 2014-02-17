@@ -13,7 +13,7 @@
 <% @tasks.each do |task| %>
   <tr>
     <td><%= task.name %></td>
-    <td><%= task.user %></td>
+    <td><%= task.user.name %></td>
     <td><%= task.state %></td>
     <td><%= link_to 'Show', task %></td>
     <td><%= link_to 'Edit', edit_task_path(task) %></td>
@@ -25,3 +25,6 @@
 <br />
 
 <%= link_to 'New Task', new_task_path %>
+</br>
+<%= link_to 'Users', users_path %>
+<br />

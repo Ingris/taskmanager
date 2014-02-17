@@ -3,7 +3,7 @@ class TasksController < ApplicationController
   # GET /tasks.json
   def index
     @tasks = Task.all
-
+  @users = User.all.map { |user| [user.name] }
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @tasks }
@@ -25,6 +25,7 @@ class TasksController < ApplicationController
   # GET /tasks/new.json
   def new
     @task = Task.new
+    @users = User.all.map { |user| [user.name, user.id] }
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,6 +42,7 @@ class TasksController < ApplicationController
   # POST /tasks.json
   def create
     @task = Task.new(params[:task])
+    @users = User.all.map { |user| [user.name, user.id] }
 
     respond_to do |format|
       if @task.save
@@ -57,6 +59,7 @@ class TasksController < ApplicationController
   # PUT /tasks/1.json
   def update
     @task = Task.find(params[:id])
+    @users = User.all.map { |user| [user.Name, user.id] }
 
     respond_to do |format|
       if @task.update_attributes(params[:task])
