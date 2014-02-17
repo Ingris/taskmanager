@@ -12,7 +12,12 @@
 
 <p>
   <b>State:</b>
-  <%= @task.state %>
+
+  <%= if @task.state=="1"
+    "Terminado"
+  else
+    "No Terminado"
+  end%>
 </p>
 
 
